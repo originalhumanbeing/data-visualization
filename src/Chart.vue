@@ -5,7 +5,7 @@
         <g
           v-for="(value, idx) in chartData"
           :transform="`translate(0, ${idx * 40})`">
-          <rect height="30" width="100" fill="orange"></rect>
+          <rect height="30" :width="barWidth(value)" fill="orange"></rect>
           <text y="15">{{ value }}</text>
         </g>
     </svg>
@@ -18,6 +18,11 @@ export default {
   data () {
     return {
       chartData: [5, 8, 20, 3, 17, 14]
+    }
+  },
+  methods: {
+    barWidth(value) {
+      return 500 / 20 * value;
     }
   }
 }
