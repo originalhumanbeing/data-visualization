@@ -1,7 +1,7 @@
 <template>
   <div id="chart">
     <svg xmlns="http://www.w3.org/2000/svg" 
-        width="500" height="400" id="rect">
+        :width="chartWidth" :height="chartHeight" id="rect">
         <g
           v-for="(value, idx) in chartData"
           :transform="`translate(0, ${idx * 40})`">
@@ -17,12 +17,19 @@ export default {
   name: 'chart',
   data () {
     return {
-      chartData: [5, 8, 20, 3, 17, 14]
+      chartWidth: 500,
+      chartHeight: 400,
+      chartData: [5, 8, 20, 25, 3, 17, 14]
     }
   },
   methods: {
     barWidth(value) {
-      return 500 / 20 * value;
+      return this.chartWidth / this.dataMax * value;
+    }
+  },
+  computed: {
+    dataMax() {
+      return Math.max(...this.chartData);
     }
   }
 }
