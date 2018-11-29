@@ -1,4 +1,7 @@
-# data-visualization
+# data visualization with VueJS
+![result](./src/assets/data-visualization-result.png)  
+My first svg bar charts made with VueJS  
+[here is reference video](https://www.youtube.com/watch?v=30v9xnB-GEo)  
 
 ## Project setup
 ```
